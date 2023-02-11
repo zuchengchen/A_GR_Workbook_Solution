@@ -1,0 +1,268 @@
+\documentclass[11pt,fleqn]{book} % Default font size and left-justified equations
+
+\usepackage[top=3cm,bottom=3cm,left=3.2cm,right=3.2cm,headsep=10pt,letterpaper]{geometry} % Page margins
+
+\usepackage{xcolor} % Required for specifying colors by name
+\definecolor{ocre}{RGB}{52,177,201} % Define the orange color used for highlighting throughout the book
+
+% Font Settings
+\usepackage{avant} % Use the Avantgarde font for headings
+%\usepackage{times} % Use the Times font for headings
+\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Sym­bol, Chancery and Com­puter Modern fonts
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{amsthm}
+
+% Bibliography
+\usepackage[style=alphabetic,sorting=nyt,sortcites=true,autopunct=true,babel=hyphen,hyperref=true,abbreviate=false,backref=true,backend=biber]{biblatex}
+\addbibresource{bibliography.bib} % BibTeX bibliography file
+\defbibheading{bibempty}{}
+
+\input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+%----------------------------------------------------------------------------------------
+%	Definitions of new commands
+%----------------------------------------------------------------------------------------
+
+\def\R{\mathbb{R}}
+\newcommand{\cvx}{convex}
+\newcommand{\nc}{\newcommand*}
+\nc{\hf}{\frac{1}{2}}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begingroup
+\thispagestyle{empty}
+%\AddToShipoutPicture*{\put(0,0){\includegraphics[scale=1.25]{esahubble}}} % Image background
+\centering
+\vspace*{5cm}
+\par\normalfont\fontsize{35}{35}\sffamily\selectfont
+{\LARGE A General Relativity Workbook}\par % Book title
+\vspace*{1cm}
+{\Huge Solutions}\par % Author name
+\endgroup
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+~\vfill
+\thispagestyle{empty}
+
+%\noindent Copyright \copyright\ 2014 Andrea Hidalgo\\ % Copyright notice
+
+%\noindent \textsc{Summer Research Internship, University of Western Ontario}\\
+%
+%\noindent \textsc{github.com/LaurethTeX/Clustering}\\ % URL
+%
+%\noindent This research was done under the supervision of Dr. Pauline Barmby with the financial support of the MITACS Globalink Research Internship Award within a total of 12 weeks, from June 16th to September 5th of 2014.\\ % License information
+
+%\noindent \textit{First release, August 2014} % Printing/edition date
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\chapterimage{head1.png} % Table of contents heading image
+
+\pagestyle{empty} % No headers
+
+\tableofcontents % Print the table of contents itself
+
+%\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+
+\pagestyle{fancy} % Print headers again
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapterimage{head2.png} % Chapter heading image
+\chapter{Introduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}
+	Geodesic in spacetime.\\
+	\begin{enumerate}
+		\item[a.] 
+		\begin{itemize}
+			\item For ball:
+			\begin{equation}
+				t = \frac{10m}{5m/s} = 2s
+			\end{equation}
+		\begin{equation}
+			h = \hf g (\frac{t}{2})^2 = \hf 10m/s^2 (\frac{2s}{2})^2 = 5m
+		\end{equation}
+	
+	\item For bullet:
+	\begin{equation}
+		t = \frac{10m}{500m/s} = 0.02s
+	\end{equation}
+	\begin{equation}
+		h = \hf g (\frac{t}{2})^2 = \hf 10m/s^2 (\frac{0.02s}{2})^2 = 5\times 10^{-4}m = 0.5 mm
+	\end{equation}
+	
+		\end{itemize}
+	
+		\item[b.] 
+	\begin{equation}
+		\begin{cases}
+			h &= R [1 - \cos(\hf \theta)] = \frac{1}{8} R \theta^2 \\
+			D &= c t = R \theta 
+		\end{cases}
+	\Rightarrow
+	\begin{cases}
+		\theta &= \frac{8h}{ct} \\
+		R &= \frac{c^2 t^2}{8h} 
+	\end{cases}
+	\end{equation}
+\begin{itemize}
+	\item For ball:
+	\begin{equation}
+		\begin{cases}
+			\theta &= \frac{8*5m}{3*10^8 m/s *2s} =  6.7*10^{-8}\\
+			R &= \frac{(3*10^8 m/s)^2 (2s)^2}{8*5m} = 9*10^{15} m \approx 1\times 10^{16}m \approx 1 ly
+		\end{cases}
+	\end{equation}
+	
+	\item For bullet:
+	\begin{equation}
+		\begin{cases}
+			\theta &= \frac{8*5\times 10^{-4}m}{3*10^8 m/s *0.02s} =  6.7*10^{-10}\\
+			R &= \frac{(3*10^8 m/s)^2 (0.02s)^2}{8*5\times 10^{-4}m} = 9*10^{15} m \approx 1\times 10^{16}m \approx 1ly
+		\end{cases}
+	\end{equation}
+\begin{equation}\label{key}
+	1 ly = 365.25 * 24 * 3600s * 3*10^8 m/s = 9.47*10^{15} m \approx 1\times 10^{16}m 
+\end{equation}
+\end{itemize}
+\end{enumerate}
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}
+	Blue shifted of light in non-inertial frame.\\
+	\begin{enumerate}
+		\item[a.]
+		\begin{equation}
+			t = \frac{d}{c} \Rrightarrow v = gt = \frac{gd}{c}
+		\end{equation}
+	\begin{equation}
+	\frac{\lambda}{\lambda_0} = \sqrt{\frac{1-v/c}{1+v/c}} \approx 1 - \frac{v}{c} \Rightarrow \frac{\lambda_0 - \lambda}{\lambda_0} = 1 - \frac{\lambda}{\lambda_0} =  \frac{v}{c} = \frac{gd}{c^2}
+	\end{equation}
+		
+		\item[b.] 
+		\begin{equation} \frac{\lambda_0 - \lambda}{\lambda_0} = \frac{gd}{c^2} = \frac{10m/s^2 \times 25m}{(3\times 10^8m/s)^2} = 2.78 \times 10^{-15}
+		\end{equation}
+	
+		\item[c.] 
+		\begin{equation}\label{gbar}
+			\bar{g} = \frac{GM}{R^2} = \frac{6.6743\times 10^{-11} m^3 kg^{-1} s^{-2} \times 3.0\times 10^{30}kg}{(12\times 10^3m)^2} = 1.39 \times 10^{12} m/s^2
+		\end{equation}
+	\begin{equation} 
+		\frac{\lambda_0 - \lambda}{\lambda_0} = \frac{\bar{g}d}{c^2} = \frac{GMd}{R^2 c^2} = \frac{6.6743\times 10^{-11} m^3 kg^{-1} s^{-2} \times 3.0\times 10^{30}kg \times 25m}{(12\times 10^3m)^2 \times (3\times 10^8m/s)^2} = 3.8 \times 10^{-4} 
+	\end{equation}
+	\end{enumerate}
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}
+	Bent of light in gravitational field.\\
+	\begin{enumerate}
+		\item[a.]
+		\begin{equation}
+			\begin{cases}
+				t &= \frac{d}{c}\\
+				L &= \hf g t^2
+			\end{cases}
+		\Rightarrow \theta \approx \sin \theta = \frac{L}{d} = \frac{gd}{2c^2} = \frac{10m/s^2 \times 3m}{2\times (3\times 10^8m/s)^2} = 1.67\times 10^{-16}
+		\end{equation}
+		
+		\item[b.] 
+		\begin{equation}
+			\theta \approx \sin \theta =  \frac{\bar{g}d}{2c^2} = \frac{1.39\times 10^{12} m/s^2 \times 3m}{2\times (3\times 10^8m/s)^2} = 1.67\times 10^{-16} = 2.32 \times 10^{-5}
+		\end{equation}
+	where we have used \eqref{gbar}.
+	\end{enumerate}
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}
+	Light deflected by the sun.\\
+	\begin{equation}
+		a = \frac{GM}{r^2} \Rightarrow a_y = a\frac{R}{r} = \frac{GMR}{r^3} = \frac{GMR}{(R^2+x^2)^{3/2}} 
+	\end{equation}
+\begin{equation}
+	v_y = \int a_y dt = \int_{-\infty}^{\infty} \frac{GMR}{(R^2+x^2)^{3/2}}  \frac{dx}{c}
+\end{equation}
+\begin{equation}
+	\begin{split}		
+		\delta &\approx \sin\delta = \frac{v_y}{c} = \int_{-\infty}^{\infty} \frac{GMR}{(R^2+x^2)^{3/2}}  \frac{dx}{c^2} = \frac{2GM}{c^2 R} \\
+		&= \frac{2\times 6.67\times 10^{-11} m^3 kg^{-1} s^{-2} \times 1.98 \times 10^{30} kg}{(3\times 10^8 m/s)^2 \times 7\times 10^8 m} = 4.2\times 10^{-6} rad = 0.87 arcsec
+	\end{split}
+\end{equation}
+where we have used 
+\begin{equation}\label{key}
+	1 arcsec = \frac{1}{3600} degree = \frac{1}{3600} \frac{\pi}{180} rad = 4.85\times 10^{-6} rad.
+\end{equation}
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}
+	Tidal effect.\\
+	Denote the radius of the Earth as $r_0 = 6.371 \times 10^6 m$.
+	\begin{equation}
+		\begin{cases}
+			a_A &= \frac{GM}{(r_0 + 22m)^2}\\
+			a_B &= \frac{GM}{(r_0 + 44m)^2}\\
+			a_C &= \frac{GM}{r_0^2}\\
+		\end{cases}
+	\end{equation}
+\begin{equation}
+	\begin{split}
+	a_B - a_A &= \frac{GM}{(r_0 + 44m)^2} - \frac{GM}{(r_0 + 22m)^2} = \frac{GM}{r_0^2} (\frac{1}{(1 + 44m/r_0)^2} - \frac{1}{(1 + 22m/r_0)^2}) \\
+	& \approx \frac{GM}{r_0^2} [1 - 2 \times 44m/r_0 - (1 - 2 \times 22m/r_0)] = - \frac{44m}{r_0}\\
+	& = - 10m/s^2 \frac{44m}{6.371 \times 10^6 m} = -6.9\times 10^{-6} m/s^2
+	\end{split}
+\end{equation}
+
+\begin{equation}
+	\begin{split}
+		a_C - a_A &= \frac{GM}{r_0^2} - \frac{GM}{(r_0 + 22m)^2} = \frac{GM}{r_0^2} (1 - \frac{1}{(1 + 22m/r_0)^2}) \\
+		& \approx \frac{GM}{r_0^2} [1  - (1 - 2 \times 22m/r_0)] =  \frac{44m}{r_0} = 6.9\times 10^{-6} m/s^2
+	\end{split}
+\end{equation}
+\end{problem}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapterimage{head2.png} % Chapter heading image
+\chapter{Review of Special Relativity}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}
+	Light been blue shifted in non-inertial frame.\\
+	\begin{enumerate}
+		\item[a.]
+		
+		\item[b.] 
+		
+		\item[c.] 
+	\end{enumerate}
+\end{problem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapterimage{head2.png} % Chapter heading image
+\chapter{Four-Vectors}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapterimage{head2.png} % Chapter heading image
+\chapter{Index Notation}
+
+\end{document}
